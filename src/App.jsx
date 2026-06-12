@@ -10,6 +10,7 @@ function App() {
   // ── State ────────────────────────────────────────────────
   const [turns, setTurns] = useState([])
   const [messages, setMessages] = useState([])
+  const [sessionMemory, setSessionMemory] = useState(null)
   const [isStreaming, setIsStreaming] = useState(false)
 
 
@@ -58,7 +59,7 @@ function App() {
     const ws = new WebSocket(WS_URL)
 
     ws.onopen = () => {
-      ws.send(JSON.stringify({ question, messages }))
+      ws.send(JSON.stringify({ question, messages, session_memory: sessionMemory }))
     }
 
     ws.onmessage = (event) => {
@@ -96,6 +97,7 @@ function App() {
           duration,
         }))
         setMessages(data.messages || [])
+        setSessionMemory(data.session_memory || null)
         setIsStreaming(false)
         ws.close()
       }
