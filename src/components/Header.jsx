@@ -1,6 +1,6 @@
 function Header({ onMenuClick }) {
   return (
-    <header className="px-4 md:px-6 h-[56px] flex items-center gap-3">
+    <header className="px-4 md:px-6 h-[56px] flex items-center gap-3 shrink-0">
       {/* Hidden above md, where the panel is always on screen and a
           button to reveal it would do nothing. */}
       <button

@@ -9,7 +9,7 @@ function QueryInput({ onSubmit, isStreaming }) {
     if (!question.trim() || isStreaming) return
     onSubmit(question.trim())
     setQuestion('')
-    textareaRef.current?.focus()
+    textareaRef.current?.blur()
   }
 
   const handleKeyDown = (e) => {
@@ -45,7 +45,7 @@ function QueryInput({ onSubmit, isStreaming }) {
         </button>
       </div>
       <p className="text-gray-600 text-xs mt-2 text-center">
-        Built on SEC filings, market data, news sentiment and quantitative signals.
+        SEC filings · market data · news · quant signals
       </p>
     </div>
   )
