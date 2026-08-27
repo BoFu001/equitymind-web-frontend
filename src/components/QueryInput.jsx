@@ -20,7 +20,7 @@ function QueryInput({ onSubmit, isStreaming }) {
   }
 
   return (
-    <div className="px-4 sm:px-8 lg:px-16 xl:px-36 pt-0 pb-2">
+    <div className="shrink-0 px-4 sm:px-8 lg:px-16 xl:px-36 pt-0 pb-2">
        <div className="flex items-center bg-gray-900 border border-gray-700 rounded-full pl-4 pr-2 py-2 focus-within:border-teal-500 transition-colors">
         <textarea
           ref={textareaRef}
