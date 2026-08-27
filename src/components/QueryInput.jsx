@@ -20,7 +20,10 @@ function QueryInput({ onSubmit, isStreaming }) {
     if (!question.trim() || isStreaming) return
     onSubmit(question.trim())
     setQuestion('')
-    resize(textareaRef.current)
+    // Not resize(): the state change has not reached the DOM yet, so
+    // scrollHeight would still measure the text that was just sent and
+    // leave the empty box several lines tall.
+    if (textareaRef.current) textareaRef.current.style.height = 'auto'
     textareaRef.current?.blur()
   }
 
