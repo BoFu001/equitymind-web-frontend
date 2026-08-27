@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import QueryInput from './components/QueryInput'
@@ -13,6 +13,24 @@ function App() {
   const [sessionMemory, setSessionMemory] = useState(null)
   const [isStreaming, setIsStreaming] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  // iOS Safari does not shrink the page when the keyboard opens — it
+  // scrolls the whole thing up instead, which carries the header off
+  // the top of the screen. visualViewport reports what is actually
+  // visible, so the column can size itself to that and stay put.
+  const [viewportHeight, setViewportHeight] = useState(null)
+  useEffect(() => {
+    const vv = window.visualViewport
+    if (!vv) return
+    const sync = () => setViewportHeight(vv.height)
+    sync()
+    vv.addEventListener('resize', sync)
+    vv.addEventListener('scroll', sync)
+    return () => {
+      vv.removeEventListener('resize', sync)
+      vv.removeEventListener('scroll', sync)
+    }
+  }, [])
 
 
 
@@ -127,7 +145,10 @@ function App() {
 
   // ── Return ───────────────────────────────────────────────
   return (
-    <div className="flex h-screen h-[100dvh] bg-gray-950 text-white">
+    <div
+      className="flex h-screen h-[100dvh] bg-gray-950 text-white"
+      style={viewportHeight ? { height: `${viewportHeight}px` } : undefined}
+    >
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(v => !v)} />
