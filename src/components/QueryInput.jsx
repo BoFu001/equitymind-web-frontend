@@ -20,7 +20,7 @@ function QueryInput({ onSubmit, isStreaming }) {
   }
 
   return (
-    <div className="px-36 pt-0 pb-2">
+    <div className="px-4 sm:px-8 lg:px-16 xl:px-36 pt-0 pb-2">
        <div className="flex items-center bg-gray-900 border border-gray-700 rounded-full pl-4 pr-2 py-2 focus-within:border-teal-500 transition-colors">
         <textarea
           ref={textareaRef}
@@ -45,7 +45,7 @@ function QueryInput({ onSubmit, isStreaming }) {
         </button>
       </div>
       <p className="text-gray-600 text-xs mt-2 text-center">
-        EquityMind uses SEC filings, live market data, and news sentiment. Not financial advice.
+        Built on SEC filings, market data, news sentiment and quantitative signals.
       </p>
     </div>
   )

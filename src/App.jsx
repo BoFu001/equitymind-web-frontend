@@ -12,6 +12,7 @@ function App() {
   const [messages, setMessages] = useState([])
   const [sessionMemory, setSessionMemory] = useState(null)
   const [isStreaming, setIsStreaming] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
 
 
@@ -127,12 +128,12 @@ function App() {
   // ── Return ───────────────────────────────────────────────
   return (
     <div className="flex h-screen bg-gray-950 text-white">
-      <Sidebar turns={turns} />
+      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 overflow-hidden">
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(v => !v)} />
         <main 
           ref={mainRef}
-          className="flex-1 overflow-y-auto overscroll-contain px-44 py-6 pb-2 space-y-6"
+          className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-8 lg:px-20 xl:px-44 py-6 pb-24 md:pb-6 space-y-6"
           onScroll={() => {
             if (isScrollingProgrammatically.current) return
             const el = mainRef.current
@@ -150,7 +151,7 @@ function App() {
             <div className="flex items-center justify-center h-full">
               <div className="text-center text-gray-500">
                 <p className="text-2xl font-semibold mb-2">EquityMind</p>
-                <p className="text-sm">Ask me about any stock, comparison, or investment idea</p>
+                <p className="text-sm">Analyse, compare, or screen US stocks</p>
               </div>
             </div>
           )}
