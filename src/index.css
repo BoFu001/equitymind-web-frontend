@@ -8,4 +8,15 @@ body, html {
   padding: 0;
   height: 100%;
   background-color: #030712;
+  /* The app column sizes itself to the viewport and scrolls the message
+     list inside. Without this the page itself scrolls too, and on a
+     phone that carried the header off the top of the screen as soon as
+     the first answer arrived. */
+  overflow: hidden;
+}
+
+/* React mounts here, and an unconstrained #root grows with its content
+   however tall its parent is. */
+#root {
+  height: 100%;
 }
