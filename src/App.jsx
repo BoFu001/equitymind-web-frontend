@@ -133,7 +133,7 @@ function App() {
         <Header onMenuClick={() => setSidebarOpen(v => !v)} />
         <main 
           ref={mainRef}
-          className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-8 lg:px-20 xl:px-44 py-6 pb-24 md:pb-6 space-y-6"
+          className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-8 lg:px-20 xl:px-44 py-6 pb-8 space-y-6"
           onScroll={() => {
             if (isScrollingProgrammatically.current) return
             const el = mainRef.current
