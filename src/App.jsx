@@ -127,7 +127,7 @@ function App() {
 
   // ── Return ───────────────────────────────────────────────
   return (
-    <div className="flex h-screen bg-gray-950 text-white">
+    <div className="flex h-screen h-[100dvh] bg-gray-950 text-white">
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(v => !v)} />

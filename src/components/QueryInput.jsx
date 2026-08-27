@@ -24,8 +24,8 @@ function QueryInput({ onSubmit, isStreaming }) {
        <div className="flex items-center bg-gray-900 border border-gray-700 rounded-full pl-4 pr-2 py-2 focus-within:border-teal-500 transition-colors">
         <textarea
           ref={textareaRef}
-          className="flex-1 bg-transparent text-white placeholder-gray-500 text-sm resize-none focus:outline-none pl-2"
-          placeholder="Ask about any stock, comparison, or investment idea..."
+          className="flex-1 bg-transparent text-white placeholder-gray-500 text-base md:text-sm resize-none focus:outline-none pl-2"
+          placeholder="Ask about a stock, or what to look for..."
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={handleKeyDown}
