@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:phone": "VITE_USE_REMOTE=1 vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
