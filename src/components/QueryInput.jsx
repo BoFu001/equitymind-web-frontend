@@ -63,7 +63,7 @@ function QueryInput({ onSubmit, isStreaming }) {
         </button>
       </div>
       <p className="text-gray-600 text-xs mt-2 text-center">
-        SEC filings · market data · news · quant signals
+        Research purposes only. Not investment advice.
       </p>
     </div>
   )
